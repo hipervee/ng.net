@@ -14,9 +14,7 @@
    
 </head>
 <body>
-    <as-main-app>
-        <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
-    </as-main-app>
+    @RenderBody()
     <!-- build:js assets/lib.js -->
     <!-- Non-module JS libs -->
     <script src="node_modules/jquery/dist/jquery.js"></script>
@@ -41,7 +39,7 @@
     </script>
     <!-- endbuild -->
     <div class="container body-content">
-        @RenderBody()
+        
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>

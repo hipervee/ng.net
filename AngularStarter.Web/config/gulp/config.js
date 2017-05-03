@@ -2,6 +2,7 @@ var envConfig = require('./utils/env');
 
 module.exports = function () {
     var root = '',
+        mvcLandingPage = root + '/views/shared/_layout.cshtml'
         src = root + 'src/',
         config = root + 'config/',
         app = src + 'app/',
@@ -78,7 +79,8 @@ module.exports = function () {
         assetsPath: assetsPath,
         tsFiles: tsFiles,
         tsTestFiles: tsTestFiles,
-        systemJs: systemJs
+        systemJs: systemJs,
+        mvLandingPage: mvcLandingPage
     };
 
     if (envConfig.ENV === envConfig.ENVS.DEV)
@@ -87,15 +89,16 @@ module.exports = function () {
         var browserSync = {
             dev: {
                 port: 3000,
+                proxy: "http://localhost:62370",
                 injectChanges: false,
-                server: {
-                    baseDir: './src/',
-                    middleware: [historyApiFallback()],
-                    routes: {
-                        "/node_modules": "node_modules",
-                        "/src": "src"
-                    }
-                },
+                // server: {
+                //     baseDir: './src/',
+                //     middleware: [historyApiFallback()],
+                //     routes: {
+                //         "/node_modules": "node_modules",
+                //         "/src": "src"
+                //     }
+                // },
                 files: [
                     src + "index.html",
                     src + "systemjs.conf.js",
