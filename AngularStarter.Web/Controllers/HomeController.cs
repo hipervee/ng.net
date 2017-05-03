@@ -14,5 +14,17 @@ namespace AngularStarter.Web.Controllers
 
             return View();
         }
+
+        public JsonResult Persons() {
+            var list = new List<Person>() {
+                new Person() { Name="Me" }
+            };
+
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+    }
+
+    public class Person {
+        public string Name { get; set; }
     }
 }
