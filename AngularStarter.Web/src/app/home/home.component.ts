@@ -11,7 +11,6 @@ import { HomeService } from './home.service';
     providers: [HomeService]
 })
 export class HomeComponent {
-
     constructor(private homeSvc: HomeService) {
         this.homeSvc.getPersons().then(data => {
             console.log(data);

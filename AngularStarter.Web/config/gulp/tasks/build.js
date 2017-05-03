@@ -50,6 +50,17 @@ gulp.task('build-assets', function (done) {
     });
 });
 
+gulp.task('mvc', function(done) {
+    gulp.src(config.mvcLandingPage)
+            .pipe(useref())
+            .pipe(gulpif('assets/lib.js', uglify()))
+            .pipe(gulpif('*.css', cssnano()))
+            .pipe(gulpif('!*.cshtml', rev()))
+            .pipe(revReplace())
+            .pipe(gulp.dest(config.build.path))
+            .on('finish', done);
+});
+
 /* Copy fonts in packages */
 gulp.task('fonts', function () {
     gulp.src(config.assetsPath.fonts + '**/*.*', {

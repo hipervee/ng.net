@@ -2,7 +2,7 @@ var envConfig = require('./utils/env');
 
 module.exports = function () {
     var root = '',
-        mvcLandingPage = root + '/views/shared/_layout.cshtml'
+        mvcLandingPage = root + 'views/Shared/_Layout.cshtml'
         src = root + 'src/',
         config = root + 'config/',
         app = src + 'app/',
@@ -80,7 +80,7 @@ module.exports = function () {
         tsFiles: tsFiles,
         tsTestFiles: tsTestFiles,
         systemJs: systemJs,
-        mvLandingPage: mvcLandingPage
+        mvcLandingPage: mvcLandingPage
     };
 
     if (envConfig.ENV === envConfig.ENVS.DEV)
